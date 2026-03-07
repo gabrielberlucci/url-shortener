@@ -27,7 +27,7 @@ import { useState } from 'react';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 
-export const App = () => {
+const MainPageFixture = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [url, setUrl] = useState('');
   const [sooner, setSooner] = useState<boolean>(false);
@@ -48,7 +48,7 @@ export const App = () => {
 
   const navigationData = [
     {
-      title: 'URL',
+      title: 'Home',
       href: '#',
     },
     {
@@ -139,3 +139,5 @@ export const App = () => {
     </ThemeProvider>
   );
 };
+
+export default MainPageFixture;
