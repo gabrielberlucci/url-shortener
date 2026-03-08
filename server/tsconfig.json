@@ -42,8 +42,9 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
 
+    "baseUrl": "./",
     "paths": {
-      "@lib/*": ["./lib/prisma.ts"]
+      "@lib/*": ["./lib/*"]
     }
   }
 }
