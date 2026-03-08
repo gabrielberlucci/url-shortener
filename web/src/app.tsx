@@ -35,9 +35,12 @@ export const App = () => {
 
   const generateUrl = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/api/url', {
-        longUrl: longUrl,
-      });
+      const res = await axios.post(
+        'https://url-shortener-j6h3.onrender.com/api/url',
+        {
+          longUrl: longUrl,
+        },
+      );
       setShortUrl(res.data.data.shortUrl);
     } catch (error) {
       console.error(error);
