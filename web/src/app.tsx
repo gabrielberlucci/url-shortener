@@ -30,19 +30,14 @@ import axios from 'axios';
 
 export const App = () => {
   const [shortUrl, setShortUrl] = useState('');
-  const [sooner, setSooner] = useState<boolean>(false);
   const [longUrl, setLongUrl] = useState('');
-
-  console.log(shortUrl);
+  const [sooner, setSooner] = useState<boolean>(false);
 
   const generateUrl = async () => {
     try {
-      const res = await axios.post(
-        'https://url-shortener-j6h3.onrender.com/api/url',
-        {
-          longUrl: longUrl,
-        },
-      );
+      const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/url`, {
+        longUrl: longUrl,
+      });
       setShortUrl(res.data.data.shortUrl.trim().replace(/['"]/g, ''));
     } catch (error) {
       console.error(error);
@@ -86,8 +81,6 @@ export const App = () => {
     },
   ];
 
-  console.log(longUrl);
-
   return (
     <ThemeProvider>
       <Navbar navigationData={navigationData} />
@@ -128,7 +121,7 @@ export const App = () => {
               successful
             
             */}
-            {shortUrl.length > 1 && (
+            {shortUrl && (
               <>
                 <CardContent>
                   <h3>Your shortened link</h3>
