@@ -15,4 +15,6 @@ export const urlSchema = z
       });
     }
   })
-  .pipe(z.url('Please, insert a valid URL to shorten.').normalize());
+  .pipe(
+    z.url({ message: 'Please, insert a valid URL to shorten.' }).normalize(),
+  );
