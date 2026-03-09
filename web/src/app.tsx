@@ -27,30 +27,41 @@ import { useState } from 'react';
 import { Toaster } from '@/components/ui/sonner';
 import { toast } from 'sonner';
 import axios from 'axios';
+import z from 'zod';
+
+import { urlSchema } from '@shared/zod-schemas';
 
 export const App = () => {
-  const [shortUrl, setShortUrl] = useState('');
-  const [longUrl, setLongUrl] = useState('');
-  const [sooner, setSooner] = useState<boolean>(false);
+  const [shortUrl, setShortUrl] = useState<string>('');
+  const [longUrl, setLongUrl] = useState<string>('');
+  const [invalid, setInvalid] = useState(false);
 
   const generateUrl = async () => {
     try {
+      urlSchema.parse(longUrl);
+
       const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/api/url`, {
         longUrl: longUrl,
       });
+
       setShortUrl(res.data.data.shortUrl.trim().replace(/['"]/g, ''));
     } catch (error) {
-      console.error(error);
+      if (error instanceof z.ZodError) {
+        const flattened = z.flattenError(error);
+        const currentErrorMessage = flattened.formErrors[0];
+
+        setInvalid(true);
+        toast.error(currentErrorMessage);
+      }
     }
   };
 
   const copyToClipBoard = () => {
     try {
       navigator.clipboard.writeText(shortUrl);
-      setSooner(true);
-      toast.success('URL copied to clipboard');
+
+      toast.success('URL copied to clipboard.');
     } catch (error) {
-      setSooner(true);
       toast.error(
         'An error occurred while trying to copy the URL to the clipboard.',
       );
@@ -96,6 +107,7 @@ export const App = () => {
               <Field className="mt-8" orientation="horizontal">
                 <InputGroup>
                   <InputGroupInput
+                    aria-invalid={invalid}
                     id="input-group-url"
                     placeholder="https://exemple.com/long-url"
                     onChange={handleInputChange}
@@ -114,13 +126,6 @@ export const App = () => {
 
             <Separator />
 
-            {/*
-              TODO: make a better validation than just a url.length > 1
-
-              the goal is to make this part only render after the API req was
-              successful
-            
-            */}
             {shortUrl && (
               <>
                 <CardContent>
@@ -154,7 +159,7 @@ export const App = () => {
         </div>
       </main>
 
-      {sooner && <Toaster />}
+      <Toaster />
     </ThemeProvider>
   );
 };
