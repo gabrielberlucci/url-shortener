@@ -47,7 +47,7 @@
       "@lib/*": ["./lib/*"],
       "@shared/*": ["../shared/*"],
       "@error/*": ["../server/src/error/*"],
-      "@controller/*": ["../server/src/controllers/*"],
+      "@controllers/*": ["../server/src/controllers/*"],
       "@middleware/*": ["../server/src/middleware/*"],
       "@routes/*": ["../server/src/routes/*"]
     }
