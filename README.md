@@ -23,7 +23,6 @@ This web app is a simple yet powerful URL shortener, developed to improve and de
 - **Building Tool:** Vite
 - **UI Library:** ReactJS
 - **CSS:** Tailwind
-- **Routes:** React Router
 - **Components:** ShadCN
 - **UI Testing:** React Cosmos
 
