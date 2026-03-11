@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
-import { urlRouter } from './routes/url.routes.js';
-import { errorMiddleware } from './middleware/error/url.error.middleware.js';
+import { urlRouter } from '@routes/url.routes.js';
+import { errorMiddleware } from '@middleware/error/url.error.middleware.js';
 
 const app = express();
 
