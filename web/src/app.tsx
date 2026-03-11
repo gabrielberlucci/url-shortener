@@ -37,8 +37,13 @@ export const App = () => {
   const [longUrl, setLongUrl] = useState<string>('');
   const [invalid, setInvalid] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [isWakingUp, setIswakingUp] = useState(false);
 
   const generateUrl = async () => {
+    setTimeout(() => {
+      setIswakingUp(true);
+    }, 4000);
+
     try {
       setDisabled(true);
       urlSchema.parse(longUrl);
@@ -58,6 +63,7 @@ export const App = () => {
       }
     } finally {
       setDisabled(false);
+      setIswakingUp(false);
     }
   };
 
@@ -133,7 +139,9 @@ export const App = () => {
                 </Button>
               </Field>
             </CardHeader>
-
+            {isWakingUp && (
+              <p className="pl-4">Server is waking up, please be patient.</p>
+            )}
             <Separator />
 
             {shortUrl && (
