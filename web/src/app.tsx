@@ -78,21 +78,17 @@ export const App = () => {
     setLongUrl(e.target.value);
   };
 
+  const openExternalLink = () => {
+    window.open(shortUrl, '_blank');
+  };
+
   const navigationData = [
-    {
-      title: 'URL',
-      href: '#',
-    },
     {
       title: 'Login',
       href: '#',
     },
     {
-      title: 'About Us',
-      href: '#',
-    },
-    {
-      title: 'Contacts',
+      title: 'Sign Up',
       href: '#',
     },
   ];
@@ -162,7 +158,11 @@ export const App = () => {
                     >
                       <Copy />
                     </Button>
-                    <Button variant="outline" size="icon">
+                    <Button
+                      onClick={openExternalLink}
+                      variant="outline"
+                      size="icon"
+                    >
                       <ExternalLink />
                     </Button>
                   </div>
