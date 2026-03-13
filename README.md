@@ -1,21 +1,21 @@
-# 🔗 URL Shortener
+# URL Shortener
 
 > A sleek and efficient [URL shortener](https://url-shortener-eosin-ten.vercel.app/) built to streamline links and showcase modern web development skills.
 
 ![Project Screenshot]![alt text](image.png)
 
-## 🎯 Objective
+## Objective
 
 This web app is a simple yet powerful URL shortener, developed to improve and demonstrate my full-stack Web Developer skills, focusing on a clean UI, robust API, and reliable database architecture.
 
-## ✨ Features
+## Features
 
 - **Instant URL Shortening:** Generate short, memorable links in milliseconds.
 - **Clean & Responsive UI:** Built with Tailwind CSS for a seamless experience on any device.
 - **Robust Validation:** Data integrity and error handling ensured with Zod on the backend.
 - **Fast Redirection:** Optimized database queries using Prisma.
 
-## 💻 Tech Stack
+## Tech Stack
 
 ### Front-End
 
@@ -39,7 +39,7 @@ This web app is a simple yet powerful URL shortener, developed to improve and de
 - **Front-end:** [Vercel](https://vercel.com/)
 - **DB:** [Neon](https://neon.com/)
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine.
 
