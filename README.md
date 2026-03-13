@@ -94,9 +94,9 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### API Reference
 
-| Method | Endpoint   | Description                                                     | Body/params |
-| ------ | ---------- | --------------------------------------------------------------- | ----------- |
-| GET    | /:shortUrl | GET the shorter URL and redirect to original URL                | NONE        |
-| POST   | /api/url   | POST the shorter URL, using nanoid and sending 201 and the data | longUrl     |
-| DELETE | NONE       | NONE                                                            | NONE        |
-| PUT    | NONE       | NONE                                                            | NONE        |
+| Method | Endpoint   | Description                                                     | Body/params     |
+| ------ | ---------- | --------------------------------------------------------------- | --------------- |
+| GET    | /:shortUrl | GET the shorter URL and redirect to original URL                | shortUrl(param) |
+| POST   | /api/url   | POST the shorter URL, using nanoid and sending 201 and the data | longUrl         |
+| DELETE | NONE       | NONE                                                            | NONE            |
+| PUT    | NONE       | NONE                                                            | NONE            |
